@@ -17,31 +17,34 @@ template<unsigned K>
 void getDistances(const SVertex& vertex, float dists[]);
 
 template<>
-inline void getDistances<5>(const SVertex& vertex, float dists[])
+inline void getDistances<8>(const SVertex& vertex, float dists[])
 {
-    dists[0] = vertex.x + vertex.y;
-    dists[1] = vertex.x + vertex.z;
-    dists[2] = vertex.y + vertex.z;
-    dists[3] = vertex.x - vertex.y;
-    dists[4] = vertex.x - vertex.z;
-}
-
-template<>
-inline void getDistances<6>(const SVertex& vertex, float dists[])
-{
-    getDistances<5>(vertex, dists);
-
-    dists[5] = vertex.y - vertex.z;
+    dists[0] = vertex.x;
+    dists[1] = vertex.y;
+    dists[2] = vertex.z;
+    dists[3] = vertex.x + vertex.y;
+    dists[4] = vertex.x + vertex.z;
+    dists[5] = vertex.y + vertex.z;
+    dists[6] = vertex.x - vertex.y;
+    dists[7] = vertex.x - vertex.z;
 }
 
 template<>
 inline void getDistances<9>(const SVertex& vertex, float dists[])
 {
-    getDistances<6>(vertex, dists);
+    getDistances<8>(vertex, dists);
 
-    dists[6] = vertex.x + vertex.y - vertex.z;
-    dists[7] = vertex.x + vertex.z - vertex.y;
-    dists[8] = vertex.y + vertex.z - vertex.x;
+    dists[8] = vertex.y - vertex.z;
+}
+
+template<>
+inline void getDistances<12>(const SVertex& vertex, float dists[])
+{
+    getDistances<9>(vertex, dists);
+
+    dists[9] = vertex.x + vertex.y - vertex.z;
+    dists[10] = vertex.x + vertex.z - vertex.y;
+    dists[11] = vertex.y + vertex.z - vertex.x;
 }
 
 template<unsigned K>
@@ -58,15 +61,11 @@ KDop<K>::KDop() throw()
 template<unsigned K>
 KDop<K>::KDop(const SVertex& vertex) throw()
 {
-    mMin[0] = mMax[0] = vertex.x;
-    mMin[1] = mMax[1] = vertex.y;
-    mMin[2] = mMax[2] = vertex.z;
-
-    float dists[(K - 6) / 2];
-    getDistances<(K - 6) / 2>(vertex, dists);
-    for (unsigned i = 0; i < (K - 6) / 2; ++i)
+    float dists[K / 2];
+    getDistances<K / 2>(vertex, dists);
+    for (unsigned i = 0; i < K / 2; ++i)
     {
-        mMin[3 + i] = mMax[3 + i] = dists[i];
+        mMin[i] = mMax[i] = dists[i];
     }
 }
 
@@ -86,15 +85,11 @@ static inline void setMinMax(float value, float& minValue, float& maxValue)
 template<unsigned K>
 KDop<K>& KDop<K>::operator += (const SVertex& vertex)
 {
-    setMinMax(vertex.x, mMin[0], mMax[0]);
-    setMinMax(vertex.y, mMin[1], mMax[1]);
-    setMinMax(vertex.z, mMin[2], mMax[2]);
-
-    float dists[(K - 6) / 2];
-    getDistances<(K - 6) / 2>(vertex, dists);
-    for(unsigned i = 0; i < (K - 6) / 2; ++i)
+    float dists[K / 2];
+    getDistances<K / 2>(vertex, dists);
+    for(unsigned i = 0; i < K / 2; ++i)
     {
-        setMinMax(dists[i], mMin[3 + i], mMax[3 + i]);
+        setMinMax(dists[i], mMin[i], mMax[i]);
     }
 
     return *this;
