@@ -12,7 +12,10 @@
 namespace NBvh3
 {
 
-/// Returns the distances to planes with normals from KDop vectors except those of AABB face planes.
+/// Returns the distances to planes with normals from KDop vectors.
+///
+/// @params Vertex with coordinates.
+/// @param[out] Result distances.
 template<unsigned K>
 void getDistances(const SVertex& vertex, float dists[]);
 
