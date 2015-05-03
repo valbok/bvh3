@@ -95,12 +95,12 @@ private:
 
     /**
      * Stores minimum distances for axes [0, K/2).
-     */     
+     */
     float mMin[K / 2];
 
     /**
      * Stores maximum distances for axes [0, K/2).
-     */     
+     */
     float mMax[K / 2];
 };
 

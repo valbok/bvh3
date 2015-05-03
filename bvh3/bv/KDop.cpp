@@ -72,13 +72,13 @@ KDop<K>::KDop(const SVertex& vertex) throw()
 
 static inline void setMinMax(float value, float& minValue, float& maxValue)
 {
-    if (value > maxValue) 
+    if (value > maxValue)
     {
         maxValue = value;
     }
 
     if (value < minValue)
-    { 
+    {
         minValue = value;
     }
 }

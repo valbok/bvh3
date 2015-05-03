@@ -24,7 +24,7 @@ struct SVertex
      * @param y Axis
      * @param z Axis
      */
-    SVertex(float xx, float yy, float zz) : x(xx), y(yy), z(zz) 
+    SVertex(float xx, float yy, float zz) : x(xx), y(yy), z(zz)
     {
     }
 

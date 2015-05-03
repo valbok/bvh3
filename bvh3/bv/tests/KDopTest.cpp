@@ -82,10 +82,10 @@ TEST(KDopTest, testPlusKDop16)
 
 TEST(KDopTest, testKDopTriangle)
 {
-    vector<SVertex> triangle = 
+    vector<SVertex> triangle =
     {
         SVertex(3, 1, 0),
-        SVertex(1, 5, 0), 
+        SVertex(1, 5, 0),
         SVertex(5, 4, 0)
     };
 
@@ -121,14 +121,14 @@ TEST(KDopTest, testOverlaps)
     vector<SVertex> triangle1 =
     {
         SVertex(3, 1, 0),
-        SVertex(1, 5, 0), 
+        SVertex(1, 5, 0),
         SVertex(5, 4, 0)
     };
 
     vector<SVertex> triangle2 =
     {
         SVertex(3, 1, 0),
-        SVertex(4, 2, 0), 
+        SVertex(4, 2, 0),
         SVertex(6, 1, 0)
     };
 
@@ -152,14 +152,14 @@ TEST(KDopTest, testOverlapsNeg)
     vector<SVertex> triangle1 =
     {
         SVertex(3, 1, 0),
-        SVertex(1, 5, 0), 
+        SVertex(1, 5, 0),
         SVertex(5, 4, 0)
     };
 
     vector<SVertex> triangle2 =
     {
         SVertex(4, 1, 0),
-        SVertex(5, 2, 0), 
+        SVertex(5, 2, 0),
         SVertex(7, 1, 0)
     };
 
