@@ -60,8 +60,25 @@ public:
      */
     bool overlaps(const KDop<K>& other) const;
 
+    /**
+     * Marges by a vertex.
+     *
+     * @param Vertex to append to current KDop.
+     */
     KDop<K>& operator += (const SVertex& vertex);
+
+    /**
+     * Marges by another KDop.
+     *
+     * @param KDop to append to current.
+     */
     KDop<K>& operator += (const KDop<K>& other);
+
+    /**
+     * Creates new KDop, merged copy of current and other.
+     *
+     * @param KDop to merge.
+     */
     KDop<K> operator + (const KDop<K>& other) const;
 
     /**
