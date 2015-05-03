@@ -122,9 +122,7 @@ KDop<K>& KDop<K>::operator += (const KDop<K>& other)
 template<unsigned K>
 KDop<K> KDop<K>::operator + (const KDop<K>& other) const
 {
-    KDop<K> res(*this);
-
-    return res += other;
+    return KDop<K>(*this) += other;
 }
 
 template<unsigned K>

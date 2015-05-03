@@ -54,7 +54,7 @@ void testMinMax(const KDop<16> bv)
     EXPECT_EQ(3, bv.getMax(7));
 }
 
-TEST(KDopTest, testPlusEquelKDop16)
+TEST(KDopTest, testPlusEqualKDop)
 {
     KDop<16> bv1(SVertex(3, 1, 0));
     KDop<16> bv2(SVertex(1, 5, 0));
@@ -63,7 +63,7 @@ TEST(KDopTest, testPlusEquelKDop16)
     testMinMax(bv1);
 }
 
-TEST(KDopTest, testPlusEquelVertex)
+TEST(KDopTest, testPlusEqualVertex)
 {
     KDop<16> bv1(SVertex(3, 1, 0));
     bv1 += SVertex(1, 5, 0);
