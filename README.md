@@ -3,11 +3,11 @@
 [Введение в дискретно-ориентированные многогранники для задачи определения столкновений.](http://habrahabr.ru/post/257339/)
 
 Simple implementation of BVH-tree using k-DOP as a bounding volume for Collision Detection task.
+Bhv3 is a binary tree that allows to search collided object elements effectively.
 
 # k-DOP
 
-Discrete Orientation Polytopes - the bounding volume that provides an ability to reduce cost of collision detection.
-Is a convex polytope bounded by k hyperplanes with fixed orientations.
+Discrete Orientation Polytopes - the bounding volume that provides an ability to reduce cost of collision detection. Is a convex polytope bounded by k hyperplanes with fixed orientations.
 
 Only 16, 18 and 24 planes have been implemented there.
 
