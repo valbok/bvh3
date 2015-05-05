@@ -54,7 +54,7 @@ Creating a tree:
     delete root1;
     delete root2;
 
-Collided:
+Unfortunatelly line collided with just a dot:
 
     TVertices vertices1 =
     {
