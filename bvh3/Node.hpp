@@ -192,10 +192,10 @@ const TBv& Node<TBv>::getBoundingVolume() const
 template<class TBv>
 bool Node<TBv>::collided(const Node<TBv>* query, TFoundNodes& output) const
 {
-    /// Stores any pairs that overlapped.
     bool result = false;
     if (overlapped(query))
-    {        
+    {
+        /// Stores any pairs that overlapped.
         output.push_back(std::make_pair(this, query));
 
         result = true;
