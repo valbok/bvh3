@@ -124,7 +124,7 @@ KDop<K> KDop<K>::operator + (const KDop<K>& other) const
 }
 
 template<unsigned K>
-bool KDop<K>::overlaps(const KDop<K>& other) const
+bool KDop<K>::overlapped(const KDop<K>& other) const
 {
     for (unsigned i = 0; i < K / 2; ++i)
     {
@@ -135,6 +135,34 @@ bool KDop<K>::overlaps(const KDop<K>& other) const
     }
 
     return true;
+}
+
+template<unsigned K>
+float KDop<K>::getWidth() const
+{
+    return mMax[0] - mMin[0];
+}
+
+template<unsigned K>
+float KDop<K>::getHeight() const
+{
+    return mMax[1] - mMin[1];
+}
+
+template<unsigned K>
+float KDop<K>::getDepth() const
+{
+    return mMax[2] - mMin[2];
+}
+
+template<unsigned K>
+SVertex KDop<K>::getCenter() const
+{
+    return SVertex(
+        mMin[0] + mMax[0], 
+        mMin[1] + mMax[1],
+        mMin[2] + mMax[2]
+        ) * 0.5;
 }
 
 template<unsigned K>

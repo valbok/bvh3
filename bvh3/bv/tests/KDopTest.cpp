@@ -15,8 +15,8 @@ TEST(KDopTest, testPointsOverlap)
     KDop<16> bv1(SVertex(3, 1, 0));
     KDop<16> bv2(SVertex(1, 5, 0));
 
-    EXPECT_FALSE(bv1.overlaps(bv2));
-    EXPECT_TRUE(bv1.overlaps(bv1));
+    EXPECT_FALSE(bv1.overlapped(bv2));
+    EXPECT_TRUE(bv1.overlapped(bv1));
 }
 
 void testMinMax(const KDop<16> bv)
@@ -82,7 +82,7 @@ TEST(KDopTest, testPlusKDop16)
 
 TEST(KDopTest, testKDopTriangle)
 {
-    vector<SVertex> triangle =
+    TVertices triangle =
     {
         SVertex(3, 1, 0),
         SVertex(1, 5, 0),
@@ -116,16 +116,16 @@ TEST(KDopTest, testKDopTriangle)
     EXPECT_EQ(2, bv.getMax(6));
 }
 
-TEST(KDopTest, testOverlaps)
+TEST(KDopTest, testoverlapped)
 {
-    vector<SVertex> triangle1 =
+    TVertices triangle1 =
     {
         SVertex(3, 1, 0),
         SVertex(1, 5, 0),
         SVertex(5, 4, 0)
     };
 
-    vector<SVertex> triangle2 =
+    TVertices triangle2 =
     {
         SVertex(3, 1, 0),
         SVertex(4, 2, 0),
@@ -144,19 +144,19 @@ TEST(KDopTest, testOverlaps)
         bv2 += triangle2[i];
     }
 
-    EXPECT_TRUE(bv1.overlaps(bv2));
+    EXPECT_TRUE(bv1.overlapped(bv2));
 }
 
-TEST(KDopTest, testOverlapsNeg)
+TEST(KDopTest, testoverlappedNeg)
 {
-    vector<SVertex> triangle1 =
+    TVertices triangle1 =
     {
         SVertex(3, 1, 0),
         SVertex(1, 5, 0),
         SVertex(5, 4, 0)
     };
 
-    vector<SVertex> triangle2 =
+    TVertices triangle2 =
     {
         SVertex(4, 1, 0),
         SVertex(5, 2, 0),
@@ -175,5 +175,128 @@ TEST(KDopTest, testOverlapsNeg)
         bv2 += triangle2[i];
     }
 
-    EXPECT_FALSE(bv1.overlaps(bv2));
+    EXPECT_FALSE(bv1.overlapped(bv2));
+}
+
+TEST(KDopTest, testoverlappedInside)
+{
+    TVertices triangle1 =
+    {
+        SVertex(3, 1, 0),
+        SVertex(1, 5, 0),
+        SVertex(5, 4, 0)
+    };
+
+    TVertices triangle2 =
+    {
+        SVertex(3, 3, 0),
+        SVertex(3, 4, 0),
+        SVertex(4, 3, 0)
+    };
+
+    KDop<16> bv1;
+    for (unsigned i = 0; i < 3; ++i)
+    {
+        bv1 += triangle1[i];
+    }
+
+    KDop<16> bv2;
+    for (unsigned i = 0; i < 3; ++i)
+    {
+        bv2 += triangle2[i];
+    }
+
+    EXPECT_TRUE(bv1.overlapped(bv2));
+    EXPECT_TRUE(bv2.overlapped(bv1));
+}
+
+TEST(KDopTest, testoverlappedLine)
+{
+    TVertices line =
+    {
+        SVertex(3, 1, 0),
+        SVertex(1, 5, 0),
+    };
+
+    TVertices triangle =
+    {
+        SVertex(3, 3, 0),
+        SVertex(3, 4, 0),
+        SVertex(4, 3, 0)
+    };
+
+    KDop<16> bv1;
+    for (unsigned i = 0; i < 3; ++i)
+    {
+        bv1 += line[i];
+    }
+
+    KDop<16> bv2;
+    for (unsigned i = 0; i < 3; ++i)
+    {
+        bv2 += triangle[i];
+    }
+
+    EXPECT_TRUE(bv1.overlapped(bv2));
+    EXPECT_TRUE(bv2.overlapped(bv1));
+}
+
+TEST(KDopTest, testoverlappedDotNeg)
+{
+    TVertices line =
+    {
+        SVertex(1, 5, 0)
+    };
+
+    TVertices triangle =
+    {
+        SVertex(3, 3, 0),
+        SVertex(3, 4, 0),
+        SVertex(4, 3, 0)
+    };
+
+    KDop<16> bv1;
+    for (unsigned i = 0; i < 3; ++i)
+    {
+        bv1 += line[i];
+    }
+
+    KDop<16> bv2;
+    for (unsigned i = 0; i < 3; ++i)
+    {
+        bv2 += triangle[i];
+    }
+
+    EXPECT_FALSE(bv1.overlapped(bv2));
+    EXPECT_FALSE(bv2.overlapped(bv1));
+}
+
+TEST(KDopTest, testoverlappedDotNeg2)
+{
+    TVertices line =
+    {
+        SVertex(3, 1, 0)
+    };
+
+    TVertices triangle =
+    {
+        SVertex(3, 3, 0),
+        SVertex(3, 4, 0),
+        SVertex(4, 3, 0)
+    };
+
+    KDop<16> bv1;
+    for (unsigned i = 0; i < 3; ++i)
+    {
+        bv1 += line[i];
+    }
+
+    KDop<16> bv2;
+    for (unsigned i = 0; i < 3; ++i)
+    {
+        bv2 += triangle[i];
+    }
+
+    EXPECT_FALSE(bv1.overlapped(bv2));
+    EXPECT_FALSE(bv2.overlapped(bv1));
 }

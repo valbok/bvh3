@@ -24,3 +24,5 @@ add_library(gtest
 include_directories(.)
 add_subdirectory(bvh3/bv)
 add_subdirectory(bvh3/bv/tests)
+add_subdirectory(bvh3/splitters/tests)
+add_subdirectory(bvh3/tests)

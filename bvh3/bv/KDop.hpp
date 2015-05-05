@@ -58,7 +58,27 @@ public:
     /**
      * Checks if current KDop object overlabs other.
      */
-    bool overlaps(const KDop<K>& other) const;
+    bool overlapped(const KDop<K>& other) const;
+
+    /**
+     * Returns AABB width.
+     */
+    float getWidth() const;
+
+    /**
+     * Returns AABB height.
+     */
+    float getHeight() const;
+
+    /**
+     * Returns AABB depth.
+     */
+    float getDepth() const;
+
+    /**
+     * Returns center of bounding valume.
+     */
+    SVertex getCenter() const;
 
     /**
      * Marges by a vertex.
