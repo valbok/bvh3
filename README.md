@@ -39,16 +39,20 @@ Creating a tree:
     {
         SVertex(3, 1, 0)
     };
+    
     TVertices vertex2 =
     {
         SVertex(3, 3, 0)
     };
+    
     auto root1 = buildTree<TKDop16>(vertex1);
     auto root2 = buildTree<TKDop16>(vertex2);
     TNodeKDop16::TFoundNodes output;
     // No collision found
     bool found = root1->collided(root2, output);
     EXPECT_FALSE(found);
+    delete root1;
+    delete root2;
 
 Collided:
 
@@ -57,12 +61,18 @@ Collided:
         SVertex(3, 1, 0),
         SVertex(1, 5, 0),
     };
+    
     TVertices vertices2 =
     {
         SVertex(3, 3, 0)
     };
+    
     auto root1 = buildTree<TKDop16>(vertices1);
     auto root2 = buildTree<TKDop16>(vertices2);
+    
     TNodeKDop16::TFoundNodes output;
     bool found = root1->collided(root2, output);
     EXPECT_TRUE(found);
+
+    delete root1;
+    delete root2;
