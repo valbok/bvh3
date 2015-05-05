@@ -45,8 +45,8 @@ Creating a tree:
         SVertex(3, 3, 0)
     };
     
-    auto root1 = buildTree<TKDop16>(vertex1);
-    auto root2 = buildTree<TKDop16>(vertex2);
+    auto root1 = buildTree<KDop<16> >(vertex1);
+    auto root2 = buildTree<KDop<16> >(vertex2);
     TNodeKDop16::TFoundNodes output;
     // No collision found
     bool found = root1->collided(root2, output);
@@ -67,8 +67,8 @@ Unfortunatelly line collided with just a dot:
         SVertex(3, 3, 0)
     };
     
-    auto root1 = buildTree<TKDop16>(vertices1);
-    auto root2 = buildTree<TKDop16>(vertices2);
+    auto root1 = buildTree<KDop<16> >(vertices1);
+    auto root2 = buildTree<KDop<16> >(vertices2);
     
     TNodeKDop16::TFoundNodes output;
     bool found = root1->collided(root2, output);
