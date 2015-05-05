@@ -6,7 +6,6 @@ Simple implementation of BVH-tree using k-DOP as a bounding volume for Collision
 
 # Build
 
-   $ cmake .; make
-   
-   $ ./bvh3/tests/NodeTest
+    $ cmake .; make
+    $ ./bvh3/tests/NodeTest
   
