@@ -35,7 +35,7 @@ public:
     /**
      * Array of matched pairs.
      */
-    typedef std::vector<TMatchedNodes> TFoundNodes;
+    typedef std::vector<TMatchedNodes> TCollidedNodes;
 
     /**
      * @param Computed bounding volume.
@@ -96,7 +96,7 @@ public:
      * @param[out] Container to store matched pairs of nodes.
      * @return true If collided.
      */
-    bool collided(const Node<TBv>* query, TFoundNodes& output) const;
+    bool collided(const Node<TBv>* query, TCollidedNodes& output) const;
 
 private:
 
@@ -190,7 +190,7 @@ const TBv& Node<TBv>::getBoundingVolume() const
 }
 
 template<class TBv>
-bool Node<TBv>::collided(const Node<TBv>* query, TFoundNodes& output) const
+bool Node<TBv>::collided(const Node<TBv>* query, TCollidedNodes& output) const
 {
     bool result = false;
     if (overlapped(query))

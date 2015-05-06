@@ -185,7 +185,7 @@ TEST(NodeTest, testCollidedDotsNeg)
 
     auto root1 = buildTree<TKDop16>(vertex1);
     auto root2 = buildTree<TKDop16>(vertex2);
-    TNodeKDop16::TFoundNodes output;
+    TNodeKDop16::TCollidedNodes output;
     bool found = root1->collided(root2, output);
 
     EXPECT_FALSE(found);
@@ -203,7 +203,7 @@ TEST(NodeTest, testCollidedDots)
     };
 
     auto root1 = buildTree<TKDop16>(vertex1);
-    TNodeKDop16::TFoundNodes output;
+    TNodeKDop16::TCollidedNodes output;
     bool found = root1->collided(root1, output);
 
     EXPECT_TRUE(found);
@@ -229,7 +229,7 @@ TEST(NodeTest, testCollidedLineVsDot)
     auto root2 = buildTree<TKDop16>(vertices2);
 
     {
-        TNodeKDop16::TFoundNodes output;
+        TNodeKDop16::TCollidedNodes output;
         bool found = root1->collided(root2, output);
 
         EXPECT_TRUE(found);
@@ -242,7 +242,7 @@ TEST(NodeTest, testCollidedLineVsDot)
     }
 
     {
-        TNodeKDop16::TFoundNodes output;
+        TNodeKDop16::TCollidedNodes output;
         bool found = root2->collided(root1, output);
 
         EXPECT_TRUE(found);
@@ -273,7 +273,7 @@ TEST(NodeTest, testCollidedTriangleVsDot)
     auto root1 = buildTree<TKDop16>(vertices1);
     auto root2 = buildTree<TKDop16>(vertices2);
 
-    TNodeKDop16::TFoundNodes output;
+    TNodeKDop16::TCollidedNodes output;
     bool found = root1->collided(root2, output);
 
     EXPECT_TRUE(found);
@@ -306,7 +306,7 @@ TEST(NodeTest, testcollidedTriangles)
     auto root1 = buildTree<TKDop16>(triangle1);
     auto root2 = buildTree<TKDop16>(triangle2);
 
-    TNodeKDop16::TFoundNodes output;
+    TNodeKDop16::TCollidedNodes output;
     bool found = root1->collided(root2, output);
 
     EXPECT_TRUE(found);
@@ -371,7 +371,7 @@ TEST(NodeTest, testCollidedTriangles)
     auto root2 = buildTree<TKDop16>(triangle2);
 
     {
-        TNodeKDop16::TFoundNodes output;
+        TNodeKDop16::TCollidedNodes output;
         bool found = root1->collided(root2, output);
 
         EXPECT_TRUE(found);
@@ -389,7 +389,7 @@ TEST(NodeTest, testCollidedTriangles)
     }
 
     {
-        TNodeKDop16::TFoundNodes output;
+        TNodeKDop16::TCollidedNodes output;
         bool found = root2->collided(root1, output);
 
         EXPECT_TRUE(found);
@@ -428,7 +428,7 @@ TEST(NodeTest, testBuildTreeNeg2)
     auto root1 = buildTree<TKDop16>(triangle1);
     auto root2 = buildTree<TKDop16>(triangle2);
 
-    TNodeKDop16::TFoundNodes output;
+    TNodeKDop16::TCollidedNodes output;
     bool found = root1->collided(root2, output);
 
     EXPECT_FALSE(found);
@@ -459,7 +459,7 @@ TEST(NodeTest, testBuildTreeInside)
     auto root2 = buildTree<TKDop16>(triangle2);
 
     {
-        TNodeKDop16::TFoundNodes output;
+        TNodeKDop16::TCollidedNodes output;
         bool found = root1->collided(root2, output);
 
         EXPECT_TRUE(found);
@@ -482,7 +482,7 @@ TEST(NodeTest, testBuildTreeInside)
     }
 
     {
-        TNodeKDop16::TFoundNodes output;
+        TNodeKDop16::TCollidedNodes output;
         bool found = root2->collided(root1, output);
 
         EXPECT_TRUE(found);
@@ -545,7 +545,7 @@ TEST(NodeTest, testCollidedTrianglesLeft)
     auto root2 = buildTree<TKDop16>(triangle2);
 
     {
-        TNodeKDop16::TFoundNodes output;
+        TNodeKDop16::TCollidedNodes output;
         bool found = root1->collided(root2, output);
 
         EXPECT_TRUE(found);
@@ -569,7 +569,7 @@ TEST(NodeTest, testCollidedTrianglesLeft)
     }
 
     {
-        TNodeKDop16::TFoundNodes output;
+        TNodeKDop16::TCollidedNodes output;
         bool found = root2->collided(root1, output);
 
         EXPECT_TRUE(found);
