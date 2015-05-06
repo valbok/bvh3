@@ -14,9 +14,9 @@ TEST(SplitterByCenter, testSplit)
 {
     TVertices vertices = 
     {
-        SVertex(3, 1, 0),
-        SVertex(1, 5, 0),
-        SVertex(5, 4, 0)
+        {3, 1, 0},
+        {1, 5, 0},
+        {5, 4, 0}
     };
 
     SplitterByCenter<KDop<16> > s(vertices, createBoundingVolume<KDop<16> >(vertices));

@@ -22,9 +22,9 @@ TEST(NodeTest, testBuildTree)
 {
     TVertices triangle =
     {
-        SVertex(3, 1, 0),
-        SVertex(1, 5, 0),
-        SVertex(5, 4, 0)
+        {3, 1, 0},
+        {1, 5, 0},
+        {5, 4, 0}
     };
 
     auto root = buildTree<TKDop16>(triangle);
@@ -97,16 +97,16 @@ TEST(NodeTest, testBuildTreeoverlapped)
 {
     TVertices triangle1 =
     {
-        SVertex(3, 1, 0),
-        SVertex(1, 5, 0),
-        SVertex(5, 4, 0)
+        {3, 1, 0},
+        {1, 5, 0},
+        {5, 4, 0}
     };
 
     TVertices triangle2 =
     {
-        SVertex(3, 1, 0),
-        SVertex(4, 2, 0),
-        SVertex(6, 1, 0)
+        {3, 1, 0},
+        {4, 2, 0},
+        {6, 1, 0}
     };
 
     auto root1 = buildTree<TKDop16>(triangle1);
@@ -123,16 +123,16 @@ TEST(NodeTest, testBuildTreeoverlappedNeg)
 {
     TVertices triangle1 =
     {
-        SVertex(3, 1, 0),
-        SVertex(1, 5, 0),
-        SVertex(5, 4, 0)
+        {3, 1, 0},
+        {1, 5, 0},
+        {5, 4, 0}
     };
 
     TVertices triangle2 =
     {
-        SVertex(4, 1, 0),
-        SVertex(5, 2, 0),
-        SVertex(6, 1, 0)
+        {4, 1, 0},
+        {5, 2, 0},
+        {6, 1, 0}
     };
 
     auto root1 = buildTree<TKDop16>(triangle1);
@@ -149,16 +149,16 @@ TEST(NodeTest, testBuildTreeoverlappedInside)
 {
     TVertices triangle1 =
     {
-        SVertex(3, 1, 0),
-        SVertex(1, 5, 0),
-        SVertex(5, 4, 0)
+        {3, 1, 0},
+        {1, 5, 0},
+        {5, 4, 0}
     };
 
     TVertices triangle2 =
     {
-        SVertex(3, 3, 0),
-        SVertex(3, 4, 0),
-        SVertex(4, 3, 0)
+        {3, 3, 0},
+        {3, 4, 0},
+        {4, 3, 0}
     };
 
     auto root1 = buildTree<TKDop16>(triangle1);
@@ -175,12 +175,12 @@ TEST(NodeTest, testCollidedDotsNeg)
 {
     TVertices vertex1 =
     {
-        SVertex(3, 1, 0)
+        {3, 1, 0}
     };
 
     TVertices vertex2 =
     {
-        SVertex(3, 3, 0)
+        {3, 3, 0}
     };
 
     auto root1 = buildTree<TKDop16>(vertex1);
@@ -199,7 +199,7 @@ TEST(NodeTest, testCollidedDots)
 {
     TVertices vertex1 =
     {
-        SVertex(3, 1, 0)
+        {3, 1, 0}
     };
 
     auto root1 = buildTree<TKDop16>(vertex1);
@@ -216,13 +216,13 @@ TEST(NodeTest, testCollidedLineVsDot)
 {
     TVertices vertices1 =
     {
-        SVertex(3, 1, 0),
-        SVertex(1, 5, 0),
+        {3, 1, 0},
+        {1, 5, 0},
     };
 
     TVertices vertices2 =
     {
-        SVertex(3, 3, 0)
+        {3, 3, 0}
     };
 
     auto root1 = buildTree<TKDop16>(vertices1);
@@ -260,14 +260,14 @@ TEST(NodeTest, testCollidedTriangleVsDot)
 {
     TVertices vertices1 =
     {
-        SVertex(3, 1, 0),
-        SVertex(1, 5, 0),
-        SVertex(5, 4, 0)
+        {3, 1, 0},
+        {1, 5, 0},
+        {5, 4, 0}
     };
 
     TVertices vertices2 =
     {
-        SVertex(4, 5, 0)
+        {4, 5, 0}
     };
 
     auto root1 = buildTree<TKDop16>(vertices1);
@@ -291,16 +291,16 @@ TEST(NodeTest, testcollidedTriangles)
 
     TVertices triangle1 =
     {
-        SVertex(3, 1, 0),
-        SVertex(1, 5, 0),
-        SVertex(5, 4, 0)
+        {3, 1, 0},
+        {1, 5, 0},
+        {5, 4, 0}
     };
 
     TVertices triangle2 =
     {
-        SVertex(3, 1, 0),
-        SVertex(4, 2, 0),
-        SVertex(6, 1, 0)
+        {3, 1, 0},
+        {4, 2, 0},
+        {6, 1, 0}
     };
 
     auto root1 = buildTree<TKDop16>(triangle1);
@@ -355,16 +355,16 @@ TEST(NodeTest, testCollidedTriangles)
 {
     TVertices triangle1 =
     {
-        SVertex(3, 1, 0),
-        SVertex(1, 5, 0),
-        SVertex(5, 4, 0)
+        {3, 1, 0},
+        {1, 5, 0},
+        {5, 4, 0}
     };
 
     TVertices triangle2 =
     {
-        SVertex(4, 1, 0),
-        SVertex(4, 2, 0),
-        SVertex(6, 1, 0)
+        {4, 1, 0},
+        {4, 2, 0},
+        {6, 1, 0}
     };
 
     auto root1 = buildTree<TKDop16>(triangle1);
@@ -413,16 +413,16 @@ TEST(NodeTest, testBuildTreeNeg2)
 {
     TVertices triangle1 =
     {
-        SVertex(3, 1, 0),
-        SVertex(1, 5, 0),
-        SVertex(5, 4, 0)
+        {3, 1, 0},
+        {1, 5, 0},
+        {5, 4, 0}
     };
 
     TVertices triangle2 =
     {
-        SVertex(2, 1, 0),
-        SVertex(0, 2, 0),
-        SVertex(0, 1, 0)
+        {2, 1, 0},
+        {0, 2, 0},
+        {0, 1, 0}
     };
 
     auto root1 = buildTree<TKDop16>(triangle1);
@@ -443,16 +443,16 @@ TEST(NodeTest, testBuildTreeInside)
 {
     TVertices triangle1 =
     {
-        SVertex(3, 1, 0),
-        SVertex(1, 5, 0),
-        SVertex(5, 4, 0)
+        {3, 1, 0},
+        {1, 5, 0},
+        {5, 4, 0}
     };
 
     TVertices triangle2 =
     {
-        SVertex(3, 3, 0),
-        SVertex(3, 4, 0),
-        SVertex(4, 3, 0)
+        {3, 3, 0},
+        {3, 4, 0},
+        {4, 3, 0}
     };
 
     auto root1 = buildTree<TKDop16>(triangle1);
@@ -529,16 +529,16 @@ TEST(NodeTest, testCollidedTrianglesLeft)
 {
     TVertices triangle1 =
     {
-        SVertex(3, 1, 0),
-        SVertex(1, 5, 0),
-        SVertex(5, 4, 0)
+        {3, 1, 0},
+        {1, 5, 0},
+        {5, 4, 0}
     };
 
     TVertices triangle2 =
     {
-        SVertex(0, 3, 0),
-        SVertex(0, 4, 0),
-        SVertex(1, 3, 0)
+        {0, 3, 0},
+        {0, 4, 0},
+        {1, 3, 0}
     };
 
     auto root1 = buildTree<TKDop16>(triangle1);
