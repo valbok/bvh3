@@ -23,26 +23,26 @@ Run a test:
 
 Two different dots should not collide (16 - is a number of planes):
 
-    KDop<16> bv1(SVertex(3, 1, 0));
-    KDop<16> bv2(SVertex(1, 5, 0));
+    KDop<16> bv1({3, 1, 0});
+    KDop<16> bv2({1, 5, 0});
     EXPECT_FALSE(bv1.overlapped(bv2));
 
 Creating one k-DOP from two:
 
-    KDop<16> bv1(SVertex(3, 1, 0));
-    KDop<16> bv2(SVertex(1, 5, 0));
+    KDop<16> bv1({3, 1, 0});
+    KDop<16> bv2({1, 5, 0});
     bv1 += bv2;
     
 Creating a tree:
 
     TVertices vertex1 =
     {
-        SVertex(3, 1, 0)
+        {3, 1, 0}
     };
     
     TVertices vertex2 =
     {
-        SVertex(3, 3, 0)
+        {3, 3, 0}
     };
     
     auto root1 = buildTree<KDop<16> >(vertex1);
@@ -58,13 +58,13 @@ Unfortunatelly line collided with just a dot:
 
     TVertices vertices1 =
     {
-        SVertex(3, 1, 0),
-        SVertex(1, 5, 0),
+        {3, 1, 0},
+        {1, 5, 0}
     };
     
     TVertices vertices2 =
     {
-        SVertex(3, 3, 0)
+        {3, 3, 0}
     };
     
     auto root1 = buildTree<KDop<16> >(vertices1);
